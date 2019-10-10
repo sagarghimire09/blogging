@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{/admin/layouts/master}">
+
+<head>
+  <title>Blogging Admin - Edit Category</title>
+</head>
+
+<body>
+	<section layout:fragment="content">
+		<div class="container">
+		    <div class="card o-hidden border-0 shadow-lg my-5">
+		      <div class="card-body p-0">
+		        <!-- Nested Row within Card Body -->
+		        <div class="row">
+		          <div class="col-lg-10">
+		            <div class="p-5">
+		              <div class="text-center">
+		                <h1 class="h4 text-gray-900 mb-4">Edit a Category!</h1>
+		              </div>
+		              <form th:action="@{/category/update}" method="post">
+		              	<input type="hidden" name="categoryId" th:value="${category.categoryId}">
+		                <div class="form-group">
+		                  <input type="text" class="form-control form-control-user" id="name" name="name" th:value="${category.name}" placeholder="Category Name">
+		                </div>
+		                <div class="form-group">
+		                  <textarea class="form-control form-control-user" id="detail" name="detail" th:text="${category.detail}" placeholder="Category detail"></textarea>
+		                </div>
+		                <div class="form-group">
+		                  	<label for="publish">Publish</label>
+		                    <input type="checkbox" id="publish" name="publish" value="1" th:checked="${category.publish}">
+		                </div>
+		                <button type="submit" class="btn btn-primary">
+		                  Update Category
+		                </button>
+		              </form>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+	</section>
+
+</body>
+
+</html>
